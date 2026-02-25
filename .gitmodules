@@ -1,0 +1,6 @@
+[submodule "diet_classifier_pytorch"]
+	path = diet/app
+	url = https://github.com/opfernandez/diet_classifier_pytorch.git
+[submodule "homelai-rpi-shs"]
+	path = homelai/app
+	url = https://github.com/grupo-avispa/homelai-rpi-shs.git

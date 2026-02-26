@@ -1,14 +1,17 @@
 FROM python:3.12-slim
 
 # Copy the package
-COPY /app/diet/ ./app/diet_classifier_pytorch
+COPY app/ /app/diet_classifier_pytorch/
 
 # Install uv (dependency manager)
 RUN pip install --no-cache-dir uv
 
 # Install dependencies with uv
-RUN cd /app/diet_classifier_pytorch && uv sync --no-dev
+RUN cd /app/diet_classifier_pytorch && uv sync --extra cpu
 
 WORKDIR /app/diet_classifier_pytorch
 
-CMD ["uv", "run", "scripts/inference_fastapi.py"]
+# Persist models and data outside the image
+VOLUME ["/app/diet_classifier_pytorch/models", "/app/diet_classifier_pytorch/data"]
+
+CMD ["uv", "run", "--frozen", "--extra", "cpu", "scripts/inference_fastapi.py"]

@@ -7,7 +7,7 @@ COPY app/ /app/diet_classifier_pytorch/
 RUN pip install --no-cache-dir uv
 
 # Install dependencies with uv
-RUN cd /app/diet_classifier_pytorch && uv sync --extra cpu
+RUN cd /app/diet_classifier_pytorch && uv sync
 
 WORKDIR /app/diet_classifier_pytorch
 

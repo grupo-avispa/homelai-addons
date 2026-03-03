@@ -14,4 +14,4 @@ WORKDIR /app/diet_classifier_pytorch
 # Persist models and data outside the image
 VOLUME ["/app/diet_classifier_pytorch/models", "/app/diet_classifier_pytorch/data"]
 
-CMD ["uv", "run", "--frozen", "--extra", "cpu", "scripts/inference_fastapi.py"]
+CMD ["uv", "run", "--frozen", "scripts/inference_fastapi.py"]

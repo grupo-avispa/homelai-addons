@@ -1,0 +1,12 @@
+services:
+  homelai_vosk:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: homelai_vosk_container
+    image: homelai_vosk:latest
+    volumes:
+      - ./app/models:/app/homelai-rpi-shs/models
+      - ./app/config:/app/homelai-rpi-shs/config
+    network_mode: "host"
+    restart: unless-stopped

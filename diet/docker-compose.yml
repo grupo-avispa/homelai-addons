@@ -1,0 +1,12 @@
+services:
+  homelai_diet:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: homelai_diet_container
+    image: homelai_diet:latest
+    volumes:
+      - ./app/models:/app/diet_classifier_pytorch/models
+      - ./app/data:/app/diet_classifier_pytorch/data
+    network_mode: "host"
+    restart: unless-stopped
